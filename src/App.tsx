@@ -2,9 +2,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 
 import Sidebar from './components/server/Sidebar'
+import MobileHeader from './components/client/MobileHeader'
 import KPICards from './components/client/KPICards'
 import FilterBar, { type Period } from './components/client/FilterBar'
 import RevenueChart from './components/client/RevenueChart'
+import CategoryList from './components/client/CategoryList'
 
 
 // Placeholder sider
@@ -36,6 +38,9 @@ function Dashboard() {
         <div className="lg:col-span-2">
           <RevenueChart />
         </div>
+        <div>
+          <CategoryList />
+        </div>
       </div>
     </div>
   )
@@ -48,6 +53,7 @@ function NotFound() {
 function App() {
   return (
     <BrowserRouter>
+      <MobileHeader />
       <div className='flex min-h-screen'>
         <Sidebar />
         <main className='flex-1 p-4 lg:p-6'>
