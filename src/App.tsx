@@ -7,6 +7,7 @@ import KPICards from './components/client/KPICards'
 import FilterBar, { type Period } from './components/client/FilterBar'
 import RevenueChart from './components/client/RevenueChart'
 import CategoryList from './components/client/CategoryList'
+import OrdersTable from './components/client/OrdersTable'
 
 
 // Placeholder sider
@@ -42,6 +43,7 @@ function Dashboard() {
           <CategoryList />
         </div>
       </div>
+      <OrdersTable />
     </div>
   )
 }
