@@ -140,7 +140,7 @@ export default function KPICards({ period }: KPICardProps) { // Hovedkomponenten
     const cards = [
         { 
             label: 'Omsætning',
-            value: `${data.totalRevenue.toLocaleString('da-DK')} kr.`,
+            value: `${data.totalRevenue.toLocaleString('da-DK')} kr`,
             change: data.changes.revenue.value,
             positive: data.changes.revenue.positive,
             featured: true,
@@ -193,7 +193,7 @@ export default function KPICards({ period }: KPICardProps) { // Hovedkomponenten
 
                     {/* Change */}
                     <p className={`text-xs mt-1 ${card.positive ? 'text-kpi-green' : 'text-kpi-red'}`}>
-                        {card.change} vs sidste periode
+                        {card.change} vs. sidste periode
                     </p>
                 </div>
             ))}

@@ -1,14 +1,35 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
+
 import Sidebar from './components/server/Sidebar'
 import KPICards from './components/client/KPICards'
+import FilterBar, { type Period } from './components/client/FilterBar'
 
 
 // Placeholder sider
 function Dashboard() {
+  const [period, setPeriod] = useState<Period>('month')
+
   return (
     <div>
-      <h1 className='text-xl font-medium text-gray-900 mb-6'>Dashboard</h1>
-      <KPICards period='month'/>
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h1 className="text-xl font-medium text-gray-900">
+            Dashboard
+          </h1>
+
+          <p className="text-sm text-gray-400">
+            Opdateret i dag
+          </p>
+        </div>
+
+        <FilterBar
+          period={period}
+          setPeriod={setPeriod}
+        />
+      </div>
+
+      <KPICards period={period} />
     </div>
   )
 }
