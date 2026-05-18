@@ -1,3 +1,5 @@
+import NavItem from "../client/NavItem"
+
 const navItems = [
   { label: 'Dashboard', href: '/' },
   { label: 'Ordrer', href: '/orders' },
@@ -29,13 +31,11 @@ export default function Sidebar() {
           Menu
         </p>
         {navItems.map((item) => (
-          <a
+          <NavItem
             key={item.href}
             href={item.href}
-            className="flex items-center px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-white hover:bg-white/10 transition-colors mb-1"
-          >
-            {item.label}
-          </a>
+            label={item.label}
+          />
         ))}
       </nav>
 
@@ -45,13 +45,11 @@ export default function Sidebar() {
           System
         </p>
         {systemItems.map((item) => (
-          <a
+          <NavItem
             key={item.href}
             href={item.href}
-            className="flex items-center px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-white hover:bg-white/10 transition-colors mb-1"
-          >
-            {item.label}
-          </a>
+            label={item.label}
+          />
         ))}
       </div>
 
