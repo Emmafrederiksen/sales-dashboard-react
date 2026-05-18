@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Sidebar from './components/server/Sidebar'
 import KPICards from './components/client/KPICards'
 import FilterBar, { type Period } from './components/client/FilterBar'
+import RevenueChart from './components/client/RevenueChart'
 
 
 // Placeholder sider
@@ -30,6 +31,12 @@ function Dashboard() {
       </div>
 
       <KPICards period={period} />
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+        <div className="lg:col-span-2">
+          <RevenueChart />
+        </div>
+      </div>
     </div>
   )
 }
