@@ -15,6 +15,7 @@ export default function RevenueChart() {
 
   useEffect(() => {
     async function fetchData() {
+
       const { data: orders } = await supabase
         .from('orders')
         .select('amount, created_at')
