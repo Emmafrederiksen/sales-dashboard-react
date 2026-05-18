@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 
-import Sidebar from './components/server/Sidebar'
-import MobileHeader from './components/client/MobileHeader'
-import KPICards from './components/client/KPICards'
-import FilterBar, { type Period } from './components/client/FilterBar'
-import RevenueChart from './components/client/RevenueChart'
-import CategoryList from './components/client/CategoryList'
-import OrdersTable from './components/client/OrdersTable'
+import Sidebar from './components/layout/Sidebar'
+import MobileHeader from './components/layout/MobileHeader'
+import KPICards from './components/dashboard/KPICards'
+import FilterBar, { type Period } from './components/dashboard/FilterBar'
+import RevenueChart from './components/dashboard/RevenueChart'
+import CategoryList from './components/dashboard/CategoryList'
+import OrdersTable from './components/dashboard/OrdersTable'
 
 
 // Placeholder sider
@@ -16,13 +16,13 @@ function Dashboard() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
         <div>
           <h1 className="text-xl font-medium text-gray-900">
             Dashboard
           </h1>
 
-          <p className="text-sm text-gray-400">
+          <p className="text-xs text-gray-400 mt-0.5">
             Opdateret i dag
           </p>
         </div>
@@ -55,15 +55,19 @@ function NotFound() {
 function App() {
   return (
     <BrowserRouter>
-      <MobileHeader />
       <div className='flex min-h-screen'>
         <Sidebar />
-        <main className='flex-1 p-4 lg:p-6'>
-          <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </main>
+
+        <div className='flex-1 flex flex-col min-w-0'>
+          <MobileHeader />
+
+          <main className='flex-1 p-4 lg:p-6'>
+            <Routes>
+              <Route path='/' element={<Dashboard />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </main>
+        </div>
       </div>
     </BrowserRouter>
   )

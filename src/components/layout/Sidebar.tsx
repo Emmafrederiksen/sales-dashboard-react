@@ -1,4 +1,4 @@
-import NavItem from "../client/NavItem"
+import NavItem from "./NavItem"
 
 const navItems = [
   { label: 'Dashboard', href: '/' },
