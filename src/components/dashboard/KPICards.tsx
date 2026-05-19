@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"; // React hooks til at håndtere state og sideeffekter
-import { supabase } from '../../lib/supabase'
+import { supabase } from '../../../server/lib/supabase'
 
 type Period = 'week' | 'month' | 'quarter' | 'year'; // Typer for de forskellige perioder brugeren kan vælge imellem
 

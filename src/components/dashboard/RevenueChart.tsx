@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import { supabase } from '../../lib/supabase'
+import { supabase } from '../../../server/lib/supabase'
 
 interface MonthlyData {
   month: string
