@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import type { Order } from '../../../server/types/order'
+import type { Order } from '../../../../server/types/order'
 
 
 interface OrdersSearchProps {
@@ -93,7 +93,7 @@ export default function OrdersSearch({ orders }: OrdersSearchProps) {
                         </span>
                     </td>
                     <td className="py-3 text-xs text-gray-400">
-                        {new Date(order.created_at).toLocaleDateString('da-DK')}
+                        {order.created_at}
                     </td>
                     </tr>
                 ))

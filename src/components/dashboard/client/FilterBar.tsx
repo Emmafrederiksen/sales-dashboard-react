@@ -1,5 +1,7 @@
 import React from 'react'
-import type { Period } from '../../../../server/types/period'
+
+import type { Period } 
+from '../../../../server/types/period'
 
 interface FilterBarProps {
   period: Period
