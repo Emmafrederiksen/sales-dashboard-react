@@ -7,6 +7,14 @@ interface OrdersSearchProps {
   orders: Order[]
 }
 
+function formatDate(dateString: string) {
+  const date = new Date(dateString)
+  const day = date.getDate()
+  const month = date.getMonth() + 1
+  const year = date.getFullYear()
+  return `${day}.${month}.${year}`
+}
+
 export default function OrdersSearch({ orders }: OrdersSearchProps) {
   const [search, setSearch] = useState('')
 
@@ -93,7 +101,7 @@ export default function OrdersSearch({ orders }: OrdersSearchProps) {
                         </span>
                     </td>
                     <td className="py-3 text-xs text-gray-400">
-                        {order.created_at}
+                        {formatDate(order.created_at)}
                     </td>
                     </tr>
                 ))
