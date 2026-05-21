@@ -21,7 +21,7 @@ export default function CategoryList({
 
   return (
 
-    <div className="bg-white rounded-xl border border-gray-100 p-4">
+    <div className="bg-white rounded-xl border border-gray-100 p-4 h-full">
 
       {/* Header */}
       <div className="mb-4">
