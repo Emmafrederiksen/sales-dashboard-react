@@ -1,12 +1,13 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 
-import Sidebar from './components/layout/Sidebar'
-import MobileHeader from './components/layout/MobileHeader'
+import Sidebar from './components/layout/shared/Sidebar'
+import MobileHeader from './components/layout/client/MobileHeader'
 import KPICards from './components/dashboard/KPICards'
-import FilterBar, { type Period } from './components/dashboard/FilterBar'
-import RevenueChart from './components/dashboard/RevenueChart'
-import CategoryList from './components/dashboard/CategoryList'
+import FilterBar from './components/dashboard/client/FilterBar'
+import type { Period }from '../server/types/period'
+import RevenueChart from './components/dashboard/client/RevenueChart'
+import CategoryList from './components/dashboard/client/CategoryList'
 import OrdersTable from './components/dashboard/OrdersTable'
 
 
@@ -39,38 +40,40 @@ function Dashboard() {
         <div className="lg:col-span-2">
           <RevenueChart />
         </div>
+
         <div>
           <CategoryList />
         </div>
       </div>
+
       <OrdersTable />
     </div>
   )
 }
 
 function NotFound() {
-  return <h1 className='text-xl font-medium text-gray-400'>Siden findes ikke endnu</h1>
-}
-
-function App() {
   return (
-    <BrowserRouter>
-      <div className='flex min-h-screen'>
-        <Sidebar />
-
-        <div className='flex-1 flex flex-col min-w-0'>
-          <MobileHeader />
-
-          <main className='flex-1 p-4 lg:p-6'>
-            <Routes>
-              <Route path='/' element={<Dashboard />} />
-              <Route path='*' element={<NotFound />} />
-            </Routes>
-          </main>
-        </div>
-      </div>
-    </BrowserRouter>
+    <h1 className='text-xl font-medium text-gray-400'>
+      Siden findes ikke endnu
+    </h1>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <div className='flex min-h-screen'>
+      <Sidebar />
+
+      <div className='flex-1 flex flex-col min-w-0'>
+        <MobileHeader />
+
+        <main className='flex-1 p-4 lg:p-6'>
+          <Routes>
+            <Route path='/' element={<Dashboard />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </main>
+      </div>
+    </div>
+  )
+}

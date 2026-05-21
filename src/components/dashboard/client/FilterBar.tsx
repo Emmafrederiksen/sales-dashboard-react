@@ -1,4 +1,5 @@
-export type Period = 'week' | 'month' | 'quarter' | 'year'
+import React from 'react'
+import type { Period } from '../../../../server/types/period'
 
 interface FilterBarProps {
   period: Period
