@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import Sidebar from './components/layout/shared/Sidebar'
+import Sidebar from './components/layout/server/Sidebar'
 import MobileHeader from './components/layout/client/MobileHeader'
 import KPICards from './components/dashboard/server/KPICards'
 import FilterBar from './components/dashboard/client/FilterBar'
