@@ -6,9 +6,9 @@ export interface Order {
 
   customers: {
     name: string
-  } | null
+  }[] | null
 
   products: {
     name: string
-  } | null
+  }[] | null
 }
