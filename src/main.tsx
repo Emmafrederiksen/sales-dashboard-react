@@ -15,4 +15,4 @@ hydrateRoot(
       revenueData={initialData.revenueData}
     />
   </StrictMode>
-)
+) 

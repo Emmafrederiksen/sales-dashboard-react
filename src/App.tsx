@@ -32,13 +32,9 @@ export default function App({
   const [currentKpiData, setCurrentKpiData] = useState(kpiData)
 
   useEffect(() => {
-  console.log('Fetcher for period:', period)
-  
   async function fetchKpis() {
     const response = await fetch(`/api/kpis?period=${period}`)
-    console.log('Response status:', response.status)
     const result = await response.json()
-    console.log('Result:', result)
     setCurrentKpiData(result)
   }
 

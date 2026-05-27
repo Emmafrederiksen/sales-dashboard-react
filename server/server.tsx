@@ -1,12 +1,9 @@
 import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
-
 import path from 'path'
 import fs from 'fs'
-
 import AppSSR from '../src/AppSSR'
-
 import ordersRouter from './routes/orders'
 import kpisRouter from './routes/kpis'
 import categoriesRouter from './routes/categories'
@@ -31,29 +28,18 @@ app.get('/', async (req, res) => {
 
   // Hent data via services
   const orders = await getOrders()
-
   const kpiData = await getKpiData()
-
   const categories = await getCategories()
-
   const revenueData = await getRevenueData()
-
-  // Console.logs EFTER data er hentet
-  console.log('Orders:', orders?.length)
-  console.log('KPI data:', kpiData)
-  console.log('Categories:', categories?.length)
-  console.log('Revenue:', revenueData?.length)
 
   // SSR render
   const html = renderToString(
-
     <AppSSR
       orders={orders}
       kpiData={kpiData}
       categories={categories}
       revenueData={revenueData}
     />
-
   )
 
   // HTML template
@@ -75,21 +61,14 @@ app.get('/', async (req, res) => {
       })}
     </script>`
   )
-
   res.send(result)
 })
 
 // Static files
-app.use(
-  express.static(
-    path.resolve('./dist/client')
-  )
-)
+app.use(express.static( path.resolve('./dist/client')))
 
 app.listen(PORT, () => {
-
   console.log(
     `SSR server kører på http://localhost:${PORT}`
   )
-
 })
